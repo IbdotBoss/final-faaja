@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Final Faaja one folder</title>
+<meta name="robots" content="noindex">
+<meta name="color-scheme" content="dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&display=swap" rel="stylesheet">
+<!-- React Bits Folder, CSS exactly as published (folder-src/Folder.css) -->
+<link rel="stylesheet" href="folder-src/Folder.css">
+<style>
+:root {
+  --ground: #1b1d20; --lane: #222428; --line: #f3f1ea; --ink: #f3f1ea; --ink-2: #c3c0b7; --rule: #45484e;
+  --gold: #ebc66b; --focus: #ebc66b;
+  --font: "Anybody", system-ui, sans-serif;
+  --t-s: .9375rem; --t-m: 1.0625rem; --t-l: 1.375rem; --t-date: 1.75rem;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html, body { overflow-x: clip; }
+body { margin: 0; background: var(--ground); color: var(--ink); font: 400 var(--t-m)/1.5 var(--font); font-stretch: 92%; }
+.wrap { max-width: 1200px; margin: 0 auto; padding: 40px 16px 32px; }
+@media (min-width: 900px) { .wrap { padding: 64px 32px 40px; } }
+h1 { margin: 0; font-size: clamp(2rem, 9.2vw, 7.5rem); line-height: .95; font-weight: 900; font-stretch: 125%; letter-spacing: -.01em; white-space: nowrap; }
+.gloss { margin: 12px 0 0; max-width: 40ch; color: var(--ink-2); }
+.gloss b { color: var(--ink); }
+
+.shelf { list-style: none; margin: 32px 0 0; padding: 0; display: grid; gap: 0; border-top: 3px solid var(--line); }
+@media (min-width: 900px) { .shelf { grid-template-columns: repeat(3, minmax(0, 1fr)); } .card + .card { border-left: 3px solid var(--line); } }
+.card { display: grid; gap: 4px; padding: 20px 16px 24px; border-bottom: 3px solid var(--line); min-width: 0; }
+@media (min-width: 900px) { .card { padding: 24px; } }
+.num { margin: 0; font-size: 2.5rem; line-height: 1; font-weight: 900; font-stretch: 150%; }
+h2 { margin: 8px 0 0; font-size: var(--t-l); line-height: 1.15; font-weight: 700; font-stretch: 100%; text-wrap: balance; overflow-wrap: break-word; }
+.code { margin: 0; font-size: var(--t-s); color: var(--ink-2); }
+.slot { display: grid; place-items: center; min-height: 300px; margin: 16px 0 8px; }
+.fallback { list-style: none; margin: 0; padding: 0; width: 100%; display: grid; gap: 6px; }
+.fallback a { color: var(--ink); font-weight: 700; }
+.fallback span { color: var(--ink-2); font-size: var(--t-s); }
+.when { margin: 0; }
+.when time { font-size: var(--t-date); font-weight: 900; font-stretch: 125%; line-height: 1.1; white-space: nowrap; }
+.left { color: var(--gold); font-weight: 700; font-size: var(--t-s); }
+.open { justify-self: start; margin-top: 4px; color: var(--ink); font-weight: 700; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.open:focus-visible, .fallback a:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+@media (hover: hover) { .open:hover { text-decoration-thickness: 2px; } }
+.folder-root { --folder-focus: var(--focus); }
+.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+footer { margin-top: 40px; font-size: var(--t-s); color: var(--ink-2); }
+footer a { color: var(--ink); }
+</style>
+<style>
+.one { display: grid; place-items: center; min-height: 340px; margin: 24px 0 8px; padding-top: 140px; }
+.list { list-style: none; margin: 16px 0 0; padding: 0; border-top: 3px solid var(--line); }
+.row { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 4px 12px; padding: 16px 0; border-bottom: 3px solid var(--line); }
+.row .num { font-size: 2rem; grid-row: span 3; }
+.row h2 { margin: 0; }
+.row .when, .row .open { grid-column: 2; }
+@media (min-width: 900px) { .row { grid-template-columns: 64px minmax(0, 1fr) 220px 220px; align-items: center; } .row .num { grid-row: auto; } .row .when, .row .open { grid-column: auto; } }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header>
+    <h1>Final Faaja</h1>
+    <p class="gloss"><b>Faaja</b>: pull until it snaps. The last lap of uni, three tests in December.</p>
+  </header>
+  <div class="one slot" data-folder>
+    <script type="application/json">{"url": "https://ibdotboss.github.io/pics-quiz/", "label": "Faaja Modules", "mode": "flap", "variant": "solid", "color": "#3d8bff", "paperColor": "#ffffff", "size": 1.5, "items": [{"title": "PICS", "url": "https://ibdotboss.github.io/pics-quiz/"}, {"title": "Image Processing", "url": "https://ibdotboss.github.io/ip-quiz/"}, {"title": "AI", "url": "https://ibdotboss.github.io/ai-quiz/"}]}</script>
+    <ul class="fallback" aria-label="The three modules"><li><a href="https://ibdotboss.github.io/pics-quiz/">PICS</a> <span>Fri 4 Dec</span></li><li><a href="https://ibdotboss.github.io/ip-quiz/">Image Processing</a> <span>Mon 7 Dec</span></li><li><a href="https://ibdotboss.github.io/ai-quiz/">AI</a> <span>Mon 7 Dec</span></li></ul>
+  </div>
+  <ol class="list">
+      <li class="row"><span class="num" aria-hidden="true">1</span><div><h2>Professional Issues, Computing and Society</h2><p class="code">MOD002647. Practice quiz.</p></div><p class="when"><time datetime="2026-12-04">Fri 4 Dec</time> <span class="left" data-date="2026-12-04"></span></p><a class="open" href="https://ibdotboss.github.io/pics-quiz/">Open the practice quiz<span class="vh">: Professional Issues, Computing and Society</span></a></li>
+      <li class="row"><span class="num" aria-hidden="true">2</span><div><h2>Image Processing</h2><p class="code">MOD002643. Cheatsheet.</p></div><p class="when"><time datetime="2026-12-07">Mon 7 Dec</time> <span class="left" data-date="2026-12-07"></span></p><a class="open" href="https://ibdotboss.github.io/ip-quiz/">Open the cheatsheet<span class="vh">: Image Processing</span></a></li>
+      <li class="row"><span class="num" aria-hidden="true">3</span><div><h2>Artificial Intelligence</h2><p class="code">MOD004553. Practice quiz.</p></div><p class="when"><time datetime="2026-12-07">Mon 7 Dec</time> <span class="left" data-date="2026-12-07"></span></p><a class="open" href="https://ibdotboss.github.io/ai-quiz/">Open the practice quiz<span class="vh">: Artificial Intelligence</span></a></li>
+  </ol>
+  <footer>Made by <a href="https://www.ibrahimuthman.me/">Ibrahim Uthman</a>.</footer>
+</main>
+<script>
+var now = new Date(), today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+document.querySelectorAll('.left[data-date]').forEach(function (el) {
+  var p = el.dataset.date.split('-'), d = Math.round((Date.UTC(+p[0], p[1] - 1, +p[2]) - today) / 864e5);
+  el.textContent = d > 1 ? 'in ' + d + ' days' : d === 1 ? 'tomorrow' : d === 0 ? 'today' : 'done';
+});
+</script>
+<!-- React Bits Folder (JS-CSS variant), source unchanged in folder-src/, bundled once with React 18.3.1 by folder-src/build.mjs -->
+<script src="folder.js" defer></script>
+</body>
+</html>

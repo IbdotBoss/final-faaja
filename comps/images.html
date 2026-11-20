@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Final Faaja image comp</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Revision sites for three ARU in-class tests: PICS test practice, the Image Processing cheatsheet and AI test practice.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Final Faaja">
+<meta property="og:description" content="Revision sites for three ARU in-class tests: PICS, Image Processing and Artificial Intelligence.">
+<meta name="twitter:card" content="summary">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#1b1d20">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231b1d20'/%3E%3Cpath d='M7 6h18v5H13v4h10v5H13v6H7z' fill='%23f3f1ea'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ground: #1b1d20; --lane: #222428; --line: #f3f1ea; --ink: #f3f1ea; --ink-2: #c3c0b7; --rule: #45484e;
+  --gold: #ebc66b; --focus: #ebc66b;
+  --font: "Anybody", system-ui, sans-serif;
+  --t-s: .9375rem; --t-m: 1.0625rem; --t-l: 1.375rem; --t-date: 1.75rem; --t-num: 2.5rem;
+  --lane-w: 3px;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html, body { overflow-x: clip; }
+body { margin: 0; background: var(--ground); color: var(--ink); font: 400 var(--t-m)/1.5 var(--font); font-stretch: 92%; }
+.wrap { max-width: 1200px; margin: 0 auto; padding: 40px 16px 32px; }
+@media (min-width: 900px) { .wrap { padding: 64px 32px 40px; } }
+
+h1 {
+  margin: 0; font-size: clamp(2rem, 9.2vw, 7.5rem); line-height: .95; font-weight: 900; font-stretch: 125%;
+  letter-spacing: -.01em; white-space: nowrap; min-width: 0;
+  cursor: ew-resize; user-select: none; touch-action: pan-y;
+}
+.gloss { margin: 12px 0 0; max-width: 40ch; color: var(--ink-2); }
+.gloss b { color: var(--ink); }
+
+/* the string: grab it, let go, it springs back */
+.string { display: block; width: 100%; height: 72px; margin: 16px 0 0; touch-action: pan-x; cursor: grab; overflow: visible; }
+.string path { fill: none; stroke: var(--line); stroke-width: 2; vector-effect: non-scaling-stroke; }
+.string circle { fill: var(--line); }
+.string:active { cursor: grabbing; }
+
+.track { list-style: none; margin: 8px 0 0; padding: 0; border-top: var(--lane-w) solid var(--line); }
+.lane { position: relative; display: grid; grid-template-columns: 48px minmax(0, 1fr); border-bottom: var(--lane-w) solid var(--line); }
+.num { display: grid; place-items: center; border-right: var(--lane-w) solid var(--line); font-size: var(--t-num); font-weight: 900; font-stretch: 150%; font-variant-numeric: tabular-nums; }
+.run { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; padding: 16px; min-width: 0; }
+h2 { margin: 0; font-size: var(--t-l); line-height: 1.15; font-weight: 700; font-stretch: 100%; overflow-wrap: break-word; text-wrap: balance; }
+.code { margin: 4px 0 0; font-size: var(--t-s); color: var(--ink-2); }
+.fact { margin: 8px 0 0; font-size: var(--t-s); }
+.fact b { font-weight: 700; }
+.cover { margin: 0; }
+.cover img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; object-position: top; outline: 1px solid var(--rule); outline-offset: -1px; }
+.finish { display: flex; flex-direction: column; gap: 4px; }
+.finish time { font-size: var(--t-date); font-weight: 900; font-stretch: 125%; line-height: 1.1; white-space: nowrap; }
+.left { color: var(--gold); font-weight: 700; font-size: var(--t-s); }
+.open { margin-top: 4px; color: var(--ink); font-weight: 700; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.open::after { content: ""; position: absolute; inset: 0; }
+.open:focus-visible { outline: none; }
+.lane:has(.open:focus-visible) { outline: 3px solid var(--focus); outline-offset: -3px; }
+.lane:active { background: var(--lane); }
+@media (hover: hover) {
+  .lane:hover { background: var(--lane); }
+  .lane:hover .open { text-decoration-thickness: 2px; }
+}
+@media (min-width: 900px) {
+  .lane { grid-template-columns: 96px minmax(0, 1fr); }
+  .num { font-size: 4rem; }
+  .run { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr) 240px; align-items: center; gap: 32px; padding: 20px 24px; }
+  .cover img { aspect-ratio: 16 / 10; }
+  .finish { align-self: stretch; justify-content: center; border-left: var(--lane-w) dashed var(--line); padding-left: 24px; }
+}
+.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+footer { margin-top: 40px; font-size: var(--t-s); color: var(--ink-2); }
+footer a { color: var(--ink); text-underline-offset: 3px; }
+footer a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+/* comp variants: a = screenshots, b = subject image where one exists, c = no image */
+body[data-v="c"] .cover, body[data-v="b"] .cover:not([data-kind="subject"]) { display: none; }
+.cover figcaption { margin-top: 6px; font-size: var(--t-s); color: var(--ink-2); }
+@media (min-width: 900px) { body[data-v="b"] .run, body[data-v="c"] .run { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr) 240px; } }
+</style>
+</head>
+<body data-v="a">
+<script>document.body.dataset.v = (location.search.match(/v=([abc])/) || [, "a"])[1];</script>
+<main class="wrap">
+  <header>
+    <h1>Final Faaja</h1>
+    <p class="gloss"><b>Faaja</b>: pull until it snaps. The last lap of uni, three tests in December.</p>
+    <svg class="string" viewBox="0 0 1000 72" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <path d="M8 36 Q500 36 992 36"/>
+      <circle cx="8" cy="36" r="5"/><circle cx="992" cy="36" r="5"/>
+    </svg>
+  </header>
+
+  <ol class="track">
+    <li class="lane">
+      <div class="num" aria-hidden="true">1</div>
+      <div class="run">
+        <div>
+          <h2>Professional Issues, Computing and Society</h2>
+          <p class="code">MOD002647</p>
+          <p class="fact"><b>Practice quiz.</b> 469 questions, the 2024-25 past paper and a mock test.</p>
+          <p class="fact"><b>The test:</b> 40 questions in 50 minutes.</p>
+        </div>
+        <figure class="cover" data-kind="product"><img fetchpriority="high" src="../images/pics-1x.webp" srcset="../images/pics-1x.webp 390w, ../images/pics.webp 780w" sizes="(min-width: 900px) 300px, 80vw" width="390" height="488" alt="The PICS practice home page, set like a printed exam paper."></figure>
+        <div class="finish">
+          <time datetime="2026-12-04">Fri 4 Dec</time><span class="left" data-date="2026-12-04"></span>
+          <a class="open" href="https://ibdotboss.github.io/pics-quiz/">Open the practice quiz<span class="vh">: Professional Issues, Computing and Society</span></a>
+        </div>
+      </div>
+    </li>
+    <li class="lane">
+      <div class="num" aria-hidden="true">2</div>
+      <div class="run">
+        <div>
+          <h2>Image Processing</h2>
+          <p class="code">MOD002643</p>
+          <p class="fact"><b>Cheatsheet.</b> One card for every weekly quiz question, 135 cards for quizzes 1 to 9.</p>
+          <p class="fact"><b>The test:</b> 1.5 hours, 50% of the module. It draws on the weekly Canvas quizzes.</p>
+        </div>
+        <figure class="cover" data-kind="product"><img src="../images/ip-1x.webp" srcset="../images/ip-1x.webp 390w, ../images/ip.webp 780w" sizes="(min-width: 900px) 300px, 80vw" width="390" height="488" alt="The Image Processing cheatsheet home page in dark mode, with a row of numbered question squares for each quiz."></figure>
+        <figure class="cover" data-kind="subject" hidden><img src="../images/ip-subject.webp" width="438" height="246" alt="An X-ray of a hand giving a thumbs up, covered in salt-and-pepper noise."><figcaption>From Quiz 07: which filter removes this noise?</figcaption></figure>
+        <div class="finish">
+          <time datetime="2026-12-07">Mon 7 Dec</time><span class="left" data-date="2026-12-07"></span>
+          <a class="open" href="https://ibdotboss.github.io/ip-quiz/">Open the cheatsheet<span class="vh">: Image Processing</span></a>
+        </div>
+      </div>
+    </li>
+    <li class="lane">
+      <div class="num" aria-hidden="true">3</div>
+      <div class="run">
+        <div>
+          <h2>Artificial Intelligence</h2>
+          <p class="code">MOD004553</p>
+          <p class="fact"><b>Practice quiz.</b> 372 questions, revision notes and a timed paper.</p>
+          <p class="fact"><b>The test:</b> 50 minutes on a computer, 50% of the module. Mostly written answers.</p>
+        </div>
+        <figure class="cover" data-kind="product"><img src="../images/ai-1x.webp" srcset="../images/ai-1x.webp 390w, ../images/ai.webp 780w" sizes="(min-width: 900px) 300px, 80vw" width="390" height="488" alt="The Artificial Intelligence test practice home page, with a choice between the core set and the full bank."></figure>
+        <div class="finish">
+          <time datetime="2026-12-07">Mon 7 Dec</time><span class="left" data-date="2026-12-07"></span>
+          <a class="open" href="https://ibdotboss.github.io/ai-quiz/">Open the practice quiz<span class="vh">: Artificial Intelligence</span></a>
+        </div>
+      </div>
+    </li>
+  </ol>
+
+  <footer>Made by <a href="https://www.ibrahimuthman.me/">Ibrahim Uthman</a>.</footer>
+</main>
+<script>
+if (document.body.dataset.v === "b") document.querySelectorAll('[data-kind="subject"]').forEach(function (f) { f.hidden = false; });
+(function () {
+  var still = matchMedia('(prefers-reduced-motion: reduce)');
+
+  /* days to each test */
+  var now = new Date(), today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+  document.querySelectorAll('.left[data-date]').forEach(function (el) {
+    var p = el.dataset.date.split('-'), d = Math.round((Date.UTC(+p[0], p[1] - 1, +p[2]) - today) / 864e5);
+    el.textContent = d > 1 ? 'in ' + d + ' days' : d === 1 ? 'tomorrow' : d === 0 ? 'today' : 'done';
+  });
+
+  /* the name: drag sideways to stretch it, let go and it snaps back */
+  var h = document.querySelector('h1'), rest = 125, x0 = null;
+  h.addEventListener('pointerdown', function (e) { x0 = e.clientX; h.style.transition = 'none'; try { h.setPointerCapture(e.pointerId); } catch (_) {} });
+  h.addEventListener('pointermove', function (e) {
+    if (x0 !== null) h.style.fontStretch = Math.min(150, rest + Math.abs(e.clientX - x0) / 6) + '%';
+  });
+  function letGo() {
+    if (x0 === null) return; x0 = null;
+    h.style.transition = still.matches ? 'none' : 'font-stretch .55s cubic-bezier(.3, 1.8, .5, 1)';
+    h.style.fontStretch = rest + '%';
+  }
+  h.addEventListener('pointerup', letGo); h.addEventListener('pointercancel', letGo);
+
+  /* the string: grab near the line, pull, release; a damped spring brings it back */
+  var svg = document.querySelector('.string'), path = svg.querySelector('path'), cx = 500, cy = 36, vx = 0, vy = 0, held = false, raf = 0;
+  function draw() { path.setAttribute('d', 'M8 36 Q' + cx.toFixed(1) + ' ' + cy.toFixed(1) + ' 992 36'); }
+  function at(e) { var r = svg.getBoundingClientRect(); return [(e.clientX - r.left) / r.width * 1000, (e.clientY - r.top) / r.height * 72]; }
+  function spring() {
+    vx = (vx + (500 - cx) * .2) * .74; vy = (vy + (36 - cy) * .2) * .74; cx += vx; cy += vy; draw();
+    if (Math.abs(vy) + Math.abs(cy - 36) + Math.abs(vx) + Math.abs(cx - 500) > .2) raf = requestAnimationFrame(spring);
+    else { cx = 500; cy = 36; draw(); raf = 0; }
+  }
+  svg.addEventListener('pointerdown', function (e) { held = true; cancelAnimationFrame(raf); try { svg.setPointerCapture(e.pointerId); } catch (_) {} });
+  svg.addEventListener('pointermove', function (e) {
+    if (!held) return; var p = at(e); cx = Math.max(60, Math.min(940, p[0])); cy = Math.max(-70, Math.min(142, 36 + (p[1] - 36) * 2)); draw();
+  });
+  function release() {
+    if (!held) return; held = false; vx = vy = 0;
+    if (still.matches) { cx = 500; cy = 36; draw(); } else raf = requestAnimationFrame(spring);
+  }
+  svg.addEventListener('pointerup', release); svg.addEventListener('pointercancel', release);
+})();
+</script>
+</body>
+</html>

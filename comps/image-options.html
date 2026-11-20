@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Image options</title>
+<meta name="robots" content="noindex">
+<style>
+:root { --ground: #111214; --ink: #f3f1ea; --ink-2: #c3c0b7; --font: system-ui, sans-serif; }
+body { margin: 0; background: var(--ground); color: var(--ink); font: 16px/1.4 var(--font); }
+.row { display: flex; gap: 24px; padding: 24px; overflow-x: auto; }
+figure { margin: 0; flex: 0 0 390px; }
+figcaption { margin-bottom: 8px; } figcaption b { display: block; } figcaption span { color: var(--ink-2); font-size: .9rem; }
+iframe { display: block; width: 390px; height: 1900px; border: 1px solid #45484e; }
+</style>
+</head>
+<body>
+<div class="row">
+  <figure><figcaption><b>A. Screenshot of each site</b><span>What the page has now. You see what you are about to open.</span></figcaption><iframe src="images.html?v=a" title="Option A"></iframe></figure>
+  <figure><figcaption><b>B. A picture from the subject</b><span>Only IP has one (Quiz 07 X-ray). AI and PICS have no images, so they go without.</span></figcaption><iframe src="images.html?v=b" title="Option B"></iframe></figure>
+  <figure><figcaption><b>C. No image</b><span>Type and track lines only. Shortest page.</span></figcaption><iframe src="images.html?v=c" title="Option C"></iframe></figure>
+</div>
+</body>
+</html>

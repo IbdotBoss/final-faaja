@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hub comps</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Atkinson+Hyperlegible+Next:wght@400;700;800&family=Lato:wght@400;700&family=Schibsted+Grotesk:wght@400;600;800&family=Familjen+Grotesk:wght@400;600;700&family=Big+Shoulders+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+body{background:#888;font:16px/1.4 system-ui}
+.label{background:#222;color:#fff;padding:8px 16px;font:600 14px system-ui}
+section{min-height:100vh}
+a{color:inherit}
+
+/* ---------- A: exam timetable ---------- */
+#a{background:#f6f6f3;color:#16181d;font-family:"Schibsted Grotesk",sans-serif;padding:48px 16px}
+#a .wrap{max-width:960px;margin:0 auto}
+#a h1{font-size:clamp(2rem,6vw,3.25rem);font-weight:800;letter-spacing:-.02em;line-height:1}
+#a .sub{color:#4a4d55;margin-top:12px;max-width:40ch}
+#a table{width:100%;border-collapse:collapse;margin-top:40px}
+#a th{text-align:left;font-size:.8rem;font-weight:600;color:#4a4d55;border-bottom:2px solid #16181d;padding:8px 12px 8px 0}
+#a td{border-bottom:1px solid #cfd0cc;padding:20px 12px 20px 0;vertical-align:top}
+#a .d{font-weight:800;font-size:1.25rem;white-space:nowrap}
+#a .d small{display:block;font-weight:400;font-size:.85rem;color:#4a4d55}
+#a .m{font-weight:600;font-size:1.125rem}
+#a .m small{display:block;font-weight:400;color:#4a4d55;font-size:.85rem}
+#a .go{display:inline-block;background:#16181d;color:#fff;padding:10px 14px;text-decoration:none;font-weight:600;white-space:nowrap}
+#a .tbd{color:#b0361b;font-weight:800}
+@media (max-width:640px){#a thead{display:none}#a tr{display:grid;grid-template-columns:1fr auto;gap:8px 12px;border-bottom:1px solid #cfd0cc;padding:20px 0}#a td{border:0;padding:0}#a td.f{grid-column:1/-1}#a td.l{grid-column:1/-1}}
+
+/* ---------- B: three covers ---------- */
+#b{background:#ecebe7;color:#1d1d1f;font-family:"Familjen Grotesk",sans-serif;padding:48px 16px}
+#b .wrap{max-width:1080px;margin:0 auto}
+#b h1{font-size:clamp(1.75rem,5vw,2.5rem);font-weight:700;letter-spacing:-.015em}
+#b .sub{color:#55555a;margin-top:8px}
+#b .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:32px}
+#b .entry{display:flex;flex-direction:column;text-decoration:none;color:inherit}
+#b .cover{height:200px;padding:20px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid #1d1d1f}
+#b .meta{background:#fff;border:1px solid #1d1d1f;border-top:0;padding:16px 20px;flex:1}
+#b .meta dl{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;font-size:.95rem}
+#b .meta dt{color:#55555a}
+#b .meta .open{margin-top:16px;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+/* IP cover: Canvas dark */
+#b .ip{background:#12171b;color:#f2f4f5;font-family:Lato,sans-serif}
+#b .ip h2{font-size:1.4rem;font-weight:700}
+#b .ip .strip{display:flex;gap:4px;flex-wrap:wrap}
+#b .ip .strip span{width:24px;height:24px;border:1px solid #3b464e;background:#1b2228;font-size:11px;display:grid;place-items:center;border-radius:4px}
+/* AI cover: viridis */
+#b .ai{background:#fff;color:#1b1424;font-family:"Atkinson Hyperlegible Next",sans-serif}
+#b .ai h2{font-size:1.4rem;font-weight:800}
+#b .ai .heat{display:grid;grid-template-columns:repeat(10,1fr);gap:3px}
+#b .ai .heat i{aspect-ratio:1;display:block}
+/* PICS cover: exam paper */
+#b .pics{background:#fff;color:#141414;font-family:Archivo,sans-serif}
+#b .pics h2{font-stretch:75%;font-weight:700;font-size:1.6rem;text-transform:none}
+#b .pics .box{display:flex;gap:10px;align-items:center;font-size:.9rem}
+#b .pics .box b{width:22px;height:22px;border:1.5px solid #141414;display:grid;place-items:center;color:#1b2f8a;font:700 18px/1 Archivo}
+
+/* ---------- C: countdown calendar ---------- */
+#c{background:#101418;color:#eef1f3;font-family:"Atkinson Hyperlegible Next",sans-serif;padding:48px 16px}
+#c .wrap{max-width:960px;margin:0 auto}
+#c .big{font-family:"Big Shoulders Display",sans-serif;font-weight:900;font-size:clamp(6rem,24vw,13rem);line-height:.85;color:#f2c94c}
+#c .big small{display:block;font-size:.2em;font-weight:700;color:#eef1f3;line-height:1.2;margin-top:8px}
+#c .cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-top:32px;max-width:420px;font-size:.85rem}
+#c .cal span{padding:6px;border:1px solid #2b333b;text-align:center}
+#c .cal .x{background:#f2c94c;color:#101418;font-weight:800}
+#c .cal .h{border:0;color:#9aa5ae}
+#c ul{list-style:none;padding:0;margin-top:40px;border-top:1px solid #2b333b}
+#c li a{display:grid;grid-template-columns:1fr auto;gap:4px 16px;padding:20px 0;border-bottom:1px solid #2b333b;text-decoration:none}
+#c li strong{font-size:1.25rem}
+#c li .r{color:#9aa5ae;font-size:.9rem}
+#c li .when{grid-row:1/3;grid-column:2;align-self:center;font-family:"Big Shoulders Display";font-weight:700;font-size:1.5rem}
+</style>
+</head>
+<body>
+
+<div class="label">A · Exam timetable</div>
+<section id="a"><div class="wrap">
+  <h1>Revision sites</h1>
+  <p class="sub">Three in-class tests this trimester. Pick a module.</p>
+  <table>
+    <thead><tr><th>Test</th><th>Module</th><th>Format</th><th>Site</th></tr></thead>
+    <tbody>
+      <tr><td class="d">7 Dec<small>Mon, 2026</small></td><td class="m">Image Processing<small>MOD002643</small></td><td class="f">1.5 hours, 50%. Draws on the weekly Canvas quizzes.</td><td class="l"><a class="go" href="#">Cheatsheet</a></td></tr>
+      <tr><td class="d">7 Dec<small>Mon, 2026</small></td><td class="m">Artificial Intelligence<small>MOD004553</small></td><td class="f">50 minutes on a computer, 50%. Mostly written answers.</td><td class="l"><a class="go" href="#">Practice quiz</a></td></tr>
+      <tr><td class="d tbd">Date ?<small>not set</small></td><td class="m">Professional Issues, Computing and Society<small>MOD002647</small></td><td class="f">40 questions in 50 minutes.</td><td class="l"><a class="go" href="#">Practice quiz</a></td></tr>
+    </tbody>
+  </table>
+</div></section>
+
+<div class="label">B · Three covers (each site introduced in its own look)</div>
+<section id="b"><div class="wrap">
+  <h1>Revision sites</h1>
+  <p class="sub">One for each in-class test. Each opens in a new look of its own.</p>
+  <div class="grid">
+    <a class="entry" href="#">
+      <div class="cover ip"><div style="font-size:.8rem;opacity:.75">MOD002643</div><h2>Image Processing cheatsheet</h2>
+        <div class="strip"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div></div>
+      <div class="meta"><dl><dt>What</dt><dd>Cheatsheet, one card per quiz question</dd><dt>Test</dt><dd>7 Dec 2026</dd><dt>Format</dt><dd>1.5 hours, 50%</dd></dl><div class="open">Open the cheatsheet</div></div>
+    </a>
+    <a class="entry" href="#">
+      <div class="cover ai"><div style="font-size:.8rem;color:#4b4357">MOD004553</div><h2>Artificial Intelligence test practice</h2>
+        <div class="heat"><i style="background:#440154"></i><i style="background:#482878"></i><i style="background:#3e4a89"></i><i style="background:#31688e"></i><i style="background:#26828e"></i><i style="background:#1f9e89"></i><i style="background:#35b779"></i><i style="background:#6ece58"></i><i style="background:#b5de2b"></i><i style="background:#fde725"></i></div></div>
+      <div class="meta"><dl><dt>What</dt><dd>Practice quiz and revision notes</dd><dt>Test</dt><dd>7 Dec 2026</dd><dt>Format</dt><dd>50 minutes on a computer, 50%</dd></dl><div class="open">Open the practice</div></div>
+    </a>
+    <a class="entry" href="#">
+      <div class="cover pics"><div style="font-size:.8rem;color:#4a4a4a">MOD002647 Professional Issues, Computing and Society</div><h2>In-class test practice</h2>
+        <div class="box"><b>✕</b> Answer ALL questions.</div></div>
+      <div class="meta"><dl><dt>What</dt><dd>Practice quiz, past paper and a mock</dd><dt>Test</dt><dd>Date not set</dd><dt>Format</dt><dd>40 questions in 50 minutes</dd></dl><div class="open">Open the practice</div></div>
+    </a>
+  </div>
+</div></section>
+
+<div class="label">C · Countdown</div>
+<section id="c"><div class="wrap">
+  <div class="big">18<small>days to 7 December</small></div>
+  <div class="cal">
+    <span class="h">M</span><span class="h">T</span><span class="h">W</span><span class="h">T</span><span class="h">F</span><span class="h">S</span><span class="h">S</span>
+    <span>30</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+    <span class="x">7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span>
+  </div>
+  <ul>
+    <li><a href="#"><strong>Image Processing</strong><span class="r">MOD002643 · cheatsheet · 1.5 hours</span><span class="when">7 Dec</span></a></li>
+    <li><a href="#"><strong>Artificial Intelligence</strong><span class="r">MOD004553 · practice quiz · 50 minutes</span><span class="when">7 Dec</span></a></li>
+    <li><a href="#"><strong>Professional Issues, Computing and Society</strong><span class="r">MOD002647 · practice quiz · 40 questions, 50 minutes</span><span class="when">?</span></a></li>
+  </ul>
+</div></section>
+</body>
+</html>

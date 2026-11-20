@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Final Faaja comps, round 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+body{font:400 16px/1.45 "Anybody",sans-serif;font-stretch:92%;background:#777}
+.label{background:#222;color:#fff;padding:8px 16px;font-weight:700;font-size:14px;font-stretch:100%}
+section{padding:40px 16px 56px}
+.wrap{max-width:1200px;margin:0 auto}
+a{color:inherit}
+img{display:block;width:100%;height:auto;object-fit:cover;object-position:top}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+
+/* ===== LAP: three lanes, the finish line is the test date ===== */
+#lap{background:#1d1f22;color:#f4f2ec}
+#lap h1{font-size:clamp(2.5rem,10vw,7.5rem);font-weight:900;font-stretch:150%;line-height:.9;letter-spacing:-.01em}
+#lap .sub{margin-top:12px;color:#b9b6ad;max-width:44ch}
+#lap .track{margin-top:36px;border-top:3px solid #f4f2ec}
+#lap .lane{display:grid;grid-template-columns:56px minmax(0,1fr);border-bottom:3px solid #f4f2ec;position:relative}
+#lap .num{font-size:2.6rem;font-weight:900;font-stretch:150%;display:grid;place-items:center;border-right:3px solid #f4f2ec}
+#lap .run{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;padding:16px}
+#lap .run h2{font-size:1.35rem;font-weight:800;font-stretch:100%;line-height:1.15}
+#lap .meta{font-size:.94rem;color:#cfccc3}
+#lap .finish{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+#lap .finish b{white-space:nowrap;font-size:1.75rem;font-weight:900;font-stretch:125%}
+#lap .finish span{color:#e9c46a;font-weight:700}
+#lap .lane img{aspect-ratio:16/9;outline:1px solid #45484d}
+#lap .go{font-weight:700;text-underline-offset:4px}
+@media(min-width:900px){
+  #lap .lane{grid-template-columns:96px minmax(0,1fr)}
+  #lap .num{font-size:4rem}
+  #lap .run{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) 250px;align-items:center;gap:32px;padding:20px 24px}
+  #lap .lane img{aspect-ratio:16/10}
+  #lap .finishcol{border-left:3px dashed #f4f2ec;padding-left:24px;align-self:stretch;display:flex;flex-direction:column;justify-content:center;gap:8px}
+}
+
+/* ===== BOW: a drawn string from today to the tests ===== */
+#bow{background:#f3f1ea;color:#16171a}
+#bow h1{font-size:clamp(2.5rem,10vw,7.5rem);font-weight:900;font-stretch:150%;line-height:.9}
+#bow .sub{margin-top:12px;color:#4b4c52;max-width:44ch}
+#bow .string{position:relative;margin:48px 0 8px;height:84px}
+#bow .string svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+#bow .ticks{display:flex;justify-content:space-between;font-size:.9rem;color:#4b4c52}
+#bow .ticks b{color:#16171a}
+#bow .cards{display:grid;gap:16px;margin-top:32px}
+#bow .card{background:#fff;border:1.5px solid #16171a;display:grid;grid-template-columns:minmax(0,1fr);gap:12px;padding:16px}
+#bow .card img{aspect-ratio:16/10;outline:1px solid #d6d3ca}
+#bow .when{display:flex;justify-content:space-between;align-items:baseline}
+#bow .when b{font-size:1.6rem;font-weight:900;font-stretch:125%}
+#bow .when span{color:#b3261e;font-weight:700}
+#bow h2{font-size:1.3rem;font-weight:800;font-stretch:100%}
+#bow .meta{font-size:.94rem;color:#4b4c52}
+#bow .go{font-weight:700;text-underline-offset:4px}
+@media(min-width:900px){#bow .cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}#bow .card img{aspect-ratio:1/1}}
+
+/* ===== BAND: one strap holds the three together ===== */
+#band{background:#e7e5df;color:#141518}
+#band .head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:12px}
+#band .sub{color:#4c4e55;max-width:40ch}
+#band .stack{margin-top:24px}
+#band .cards{display:grid;gap:16px;margin-top:-24px;position:relative}
+#band .strap{background:#141518;color:#e7e5df;margin:0 -16px;padding:14px 16px 40px;font-size:clamp(2rem,9vw,6.5rem);font-weight:900;font-stretch:150%;line-height:.95;letter-spacing:-.01em}
+#band .card{background:#fff;border:1px solid #c9c9c4;display:grid;grid-template-columns:minmax(0,1fr);gap:10px;padding:16px;position:relative}
+#band .card img{aspect-ratio:16/10;outline:1px solid #c9c9c4}
+#band .when{display:flex;justify-content:space-between;align-items:baseline}
+#band .when b{font-size:1.6rem;font-weight:900;font-stretch:125%}
+#band .when span{color:#4c4e55;font-size:.94rem}
+#band h2{font-size:1.3rem;font-weight:800;font-stretch:100%}
+#band .meta{font-size:.94rem;color:#4c4e55}
+#band .go{font-weight:700;text-underline-offset:4px}
+@media(min-width:900px){
+  #band .strap{margin:0 -32px;padding:20px 32px 72px;font-size:clamp(3rem,8vw,7rem)}
+  #band .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:-56px;position:relative}
+  #band .card img{aspect-ratio:1/1}
+}
+}
+</style>
+</head>
+<body>
+
+<div class="label">D · Final lap: three lanes, the finish line is the test date</div>
+<section id="lap"><div class="wrap">
+  <h1>Final Faaja</h1>
+  <p class="sub">The last lap of uni. Three lanes, three finish lines, pulled to the limit.</p>
+  <div class="track">
+    <div class="lane"><div class="num">1</div><div class="run">
+      <div><h2>Professional Issues, Computing and Society</h2><p class="meta">MOD002647 · Practice quiz, 469 questions, past paper, mock. Test: 40 questions in 50 minutes.</p></div>
+      <img src="../images/pics-1x.webp" alt="">
+      <div class="finishcol"><div class="finish"><b>Fri 4 Dec</b><span>15 days</span></div><a class="go" href="#">Open the practice quiz</a></div>
+    </div></div>
+    <div class="lane"><div class="num">2</div><div class="run">
+      <div><h2>Image Processing</h2><p class="meta">MOD002643 · Cheatsheet, 135 cards. Test: 1.5 hours, 50%.</p></div>
+      <img src="../images/ip-1x.webp" alt="">
+      <div class="finishcol"><div class="finish"><b>Mon 7 Dec</b><span>18 days</span></div><a class="go" href="#">Open the cheatsheet</a></div>
+    </div></div>
+    <div class="lane"><div class="num">3</div><div class="run">
+      <div><h2>Artificial Intelligence</h2><p class="meta">MOD004553 · Practice quiz, 372 questions. Test: 50 minutes on a computer, 50%.</p></div>
+      <img src="../images/ai-1x.webp" alt="">
+      <div class="finishcol"><div class="finish"><b>Mon 7 Dec</b><span>18 days</span></div><a class="go" href="#">Open the practice quiz</a></div>
+    </div></div>
+  </div>
+</div></section>
+
+<div class="label">E · Drawn bow: the string runs from today to the tests</div>
+<section id="bow"><div class="wrap">
+  <h1>Final Faaja</h1>
+  <p class="sub">Draw the bow to its limit, then release. Today to the last test, 18 days.</p>
+  <div class="string" aria-hidden="true">
+    <svg viewBox="0 0 1000 84" preserveAspectRatio="none">
+      <path d="M0 42 Q 410 84 1000 42" fill="none" stroke="#16171a" stroke-width="2.5" vector-effect="non-scaling-stroke"/>
+      <circle cx="0" cy="42" r="7" fill="#16171a"/>
+      <circle cx="833" cy="55" r="9" fill="#b3261e"/>
+      <circle cx="1000" cy="42" r="9" fill="#b3261e"/>
+    </svg>
+  </div>
+  <div class="ticks"><span><b>Today</b> 19 Nov</span><span><b>PICS</b> 4 Dec</span><span><b>IP, AI</b> 7 Dec</span></div>
+  <div class="cards">
+    <div class="card"><div class="when"><b>Fri 4 Dec</b><span>in 15 days</span></div><img src="../images/pics-1x.webp" alt=""><h2>Professional Issues, Computing and Society</h2><p class="meta">MOD002647. Practice quiz, 469 questions, past paper and a mock. Test: 40 questions in 50 minutes.</p><a class="go" href="#">Open the practice quiz</a></div>
+    <div class="card"><div class="when"><b>Mon 7 Dec</b><span>in 18 days</span></div><img src="../images/ip-1x.webp" alt=""><h2>Image Processing</h2><p class="meta">MOD002643. Cheatsheet, 135 cards. Test: 1.5 hours, 50%.</p><a class="go" href="#">Open the cheatsheet</a></div>
+    <div class="card"><div class="when"><b>Mon 7 Dec</b><span>in 18 days</span></div><img src="../images/ai-1x.webp" alt=""><h2>Artificial Intelligence</h2><p class="meta">MOD004553. Practice quiz, 372 questions. Test: 50 minutes on a computer, 50%.</p><a class="go" href="#">Open the practice quiz</a></div>
+  </div>
+</div></section>
+
+<div class="label">F · The band (fascia): one strap holds the three sites together</div>
+<section id="band"><div class="wrap">
+  <div class="head"><p class="sub"><b>Faaja</b>: pull to the limit. Fascia: the band that holds a structure together. Three tests, 4 to 7 December.</p></div>
+  <div class="stack">
+    <div class="strap">Final Faaja</div>
+    <div class="cards">
+    <div class="card"><div class="top"><div class="when"><b>Fri 4 Dec</b><span>in 15 days</span></div><img src="../images/pics-1x.webp" alt=""></div><div class="bottom"><h2>Professional Issues, Computing and Society</h2><p class="meta">MOD002647. Practice quiz, 469 questions, past paper and a mock. Test: 40 questions in 50 minutes.</p><a class="go" href="#">Open the practice quiz</a></div></div>
+    <div class="card"><div class="top"><div class="when"><b>Mon 7 Dec</b><span>in 18 days</span></div><img src="../images/ip-1x.webp" alt=""></div><div class="bottom"><h2>Image Processing</h2><p class="meta">MOD002643. Cheatsheet, 135 cards. Test: 1.5 hours, 50%.</p><a class="go" href="#">Open the cheatsheet</a></div></div>
+    <div class="card"><div class="top"><div class="when"><b>Mon 7 Dec</b><span>in 18 days</span></div><img src="../images/ai-1x.webp" alt=""></div><div class="bottom"><h2>Artificial Intelligence</h2><p class="meta">MOD004553. Practice quiz, 372 questions. Test: 50 minutes on a computer, 50%.</p><a class="go" href="#">Open the practice quiz</a></div></div>
+    </div>
+  </div>
+</div></section>
+<script>
+/* Pull and snap: drag across the name to stretch it, let go and it snaps back. */
+document.querySelectorAll('h1, .strap').forEach(function (el) {
+  el.style.touchAction = 'pan-y'; el.style.cursor = 'ew-resize'; el.style.userSelect = 'none';
+  el.style.fontStretch = '100%';
+  var x0 = null, w = 100;
+  function set(v) { el.style.fontStretch = v + '%'; }
+  el.addEventListener('pointerdown', function (e) { x0 = e.clientX; el.setPointerCapture(e.pointerId); el.style.transition = 'none'; });
+  el.addEventListener('pointermove', function (e) {
+    if (x0 === null) return;
+    w = Math.max(100, Math.min(150, 100 + Math.abs(e.clientX - x0) / 4)); set(w);
+  });
+  function release() {
+    if (x0 === null) return; x0 = null;
+    /* snap back with an overshoot; reduced motion jumps straight back */
+    el.style.transition = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'none' : 'font-stretch .55s cubic-bezier(.3, 1.8, .5, 1)';
+    set(100);
+  }
+  el.addEventListener('pointerup', release); el.addEventListener('pointercancel', release);
+});
+</script>
+</body>
+</html>
