@@ -42,8 +42,20 @@ function Slot({ card, room, url, phoneSize, label, items, color, mode = 'book', 
   );
 }
 
+// A paper with "lines" shows its title and an outline of what the site holds.
+const outline = item =>
+  item.lines
+    ? { ...item, content: (
+        <div className="ff-paper">
+          <span className="ff-paper-title">{item.title}</span>
+          <ul>{item.lines.map(line => <li key={line}>{line}</li>)}</ul>
+        </div>
+      ) }
+    : item;
+
 document.querySelectorAll('[data-folder]').forEach(slot => {
   const data = JSON.parse(slot.querySelector('script[type="application/json"]').textContent);
+  data.items = data.items.map(outline);
   const card = slot.closest('.card') || slot;
   createRoot(slot).render(<Slot card={card} room={slot.clientWidth || 9999} {...data} />);
 });
