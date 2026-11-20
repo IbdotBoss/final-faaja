@@ -1,5 +1,7 @@
 # Final Faaja
 
+Live at https://faaja.space (GitHub Pages; the `CNAME` file sets the domain, so keep it). The three module sites stay on github.io, because saved progress is tied to their address.
+
 One static page that links to three revision sites for the December in-class tests at ARU:
 
 - MOD002647 PICS test practice: https://ibdotboss.github.io/pics-quiz/ (test 4 Dec 2026)

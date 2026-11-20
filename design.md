@@ -91,4 +91,6 @@ Under the string sits one folder, "Faaja Modules" (React Bits Folder), with a pa
 
 ## Stack
 
+Hosted on GitHub Pages at https://faaja.space (DNS at Vercel; Stage may change the domain after the semester). Canonical and og:url point there. An og:image is still missing.
+
 One static `index.html`, no build at page load. Anybody comes from Google Fonts. The folder is a prebuilt script, `folder/folder.js`. Its source and the build script sit in `folder/src/`.
