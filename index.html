@@ -56,6 +56,7 @@ h1 {
 .fallback { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 24px; align-self: end; }
 .fallback a { color: var(--ink); font-weight: 700; text-underline-offset: 4px; }
 .fallback a:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.folder-hint { margin: 0 0 8px; text-align: center; font-size: var(--t-s); color: var(--ink-2); }
 
 /* the list: each module, its test date and the link, one tap */
 .track { list-style: none; margin: 16px 0 0; padding: 0; border-top: var(--lane-w) solid var(--line); }
@@ -99,6 +100,7 @@ footer a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
     <script type="application/json">{"url": "https://ibdotboss.github.io/pics-quiz/", "label": "Faaja Modules", "mode": "flap", "variant": "solid", "color": "#3d8bff", "paperColor": "#ffffff", "size": 1.5, "phoneSize": 1.0, "items": [{"title": "Professional Issues, Computing and Society", "url": "https://ibdotboss.github.io/pics-quiz/", "lines": ["Revision notes", "2024-25 past paper", "Core set", "Practice by week", "Mock test"]}, {"title": "Image Processing", "url": "https://ibdotboss.github.io/ip-quiz/", "lines": ["Cheatsheet, quizzes 1 to 9", "Rules for every week", "Look-up tables"]}, {"title": "Artificial Intelligence", "url": "https://ibdotboss.github.io/ai-quiz/", "lines": ["Revision notes", "Written answers", "Multiple choice", "Mixed set", "Timed written paper"]}], "layout": "spread"}</script>
     <ul class="fallback" aria-label="The three modules"><li><a href="https://ibdotboss.github.io/pics-quiz/">PICS</a></li><li><a href="https://ibdotboss.github.io/ip-quiz/">Image Processing</a></li><li><a href="https://ibdotboss.github.io/ai-quiz/">AI</a></li></ul>
   </div>
+  <p class="folder-hint" hidden>Press the folder to open it, then press a sheet to go to that module.</p>
 
   <ol class="track">
     <li class="lane">
@@ -126,6 +128,7 @@ footer a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
 <script>
 (function () {
   var still = matchMedia('(prefers-reduced-motion: reduce)');
+  document.querySelector('.folder-hint').hidden = false;
 
   /* days to each test */
   var now = new Date(), today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
